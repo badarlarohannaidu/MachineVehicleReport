@@ -1,0 +1,136 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #36454F;
+    margin: 0;
+    padding-top: 60px; /* Adjusted to leave space for the fixed navbar */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar {
+    width: 100%;
+    background-color: #2c5c3c;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+.navbar a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: #7ac78a;
+}
+
+.navbar .nav-links {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+form {
+    justify-content: center;
+    margin-top: 20px; /* Space between the form and the navbar */
+    background: #FEE715;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+
+p {
+    margin: 0 0 10px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="time"],
+textarea {
+    width: calc(100% - 22px); /* Adjust width to accommodate padding and borders */
+    padding: 10px;
+    margin: 5px 0 20px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus {
+    border-color: #007bff;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+label {
+    margin-right: 20px;
+    color: #555555;
+}
+
+b.section-title {
+    display: block;
+    font-size: 1.2em;
+    margin-top: -10px;
+    color: #333333;
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+.inline {
+    display: flex;
+    align-items: center;
+}
+
+.inline p {
+    margin-right: 10px;
+    margin-bottom: 0;
+}
+
+.inline input[type="number"] {
+    width: auto;
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.inline label {
+    margin-right: 10px;
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #85dabb;
+}

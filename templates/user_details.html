@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Data Display</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #36454F;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4FFFB0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #FEE715;
+            box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 14px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #F9E795;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vehicle Data</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th>Shift</th>
+                <th>Unit</th>
+                <th>Starting Measuring Unit</th>
+                <th>Ending Measuring Unit</th>
+                <th>Chargeable to</th>
+                <th>Location</th>
+                <th>Nature</th>
+                <th>No. of Trips</th>
+                <th>Quantity</th>
+                <th>Quantity Units</th>
+                <th>Operator</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Fuel Type</th>
+                <th>Fuel Quantity</th>
+                <th>Breakdown Details</th>
+                <th>BreakDown Start time</th>
+                <th>BreakDown End Time</th>
+                <th>Spear Parts Used</th>
+                <th>Mechanic</th>
+                <th>Total working time</th>
+                <th>Remarks</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.description }}</td>
+                <td>{{ user.date }}</td>
+                <td>{{ user.shift }}</td>
+                <td>{{ user.unit }}</td>
+                <td>{{ user.smu }}</td>
+                <td>{{ user.emu }}</td>
+                <td>{{ user.charge }}</td>
+                <td>{{ user.location }}</td>
+                <td>{{ user.nature }}</td>
+                <td>{{ user.trips }}</td>
+                <td>{{ user.quantity }}</td>
+                <td>{{ user.quanunits }}</td>
+                <td>{{ user.operator }}</td>
+                <td>{{ user.start_time }}</td>
+                <td>{{ user.end_time }}</td>
+                <td>{{ user.fuel }}</td>
+                <td>{{ user.fuel_quantity }}</td>
+                <td>{{ user.BreakDown }}</td>
+                <td>{{user.breakdown_start}}</td>
+                <td>{{user.breakdown_end}}</td>
+                <td>{{ user.SpearParts }}</td>
+                <td>{{ user.mech }}</td>
+                <td>{{user.working_hours}}</td>
+                <td>{{ user.remarks }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

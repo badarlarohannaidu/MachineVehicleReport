@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Data</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">Logo</div>
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="index.html">Enter Data</a>
+            <a href="get_report.html">Get Report</a>
+        </div>
+    </div>
+
+    <form method="POST">
+        <h1><u>Machinery DPR report</u></h1>
+        <br>
+        <br>
+        <div class="section">
+            <b class="section-title">Machine/Vehicle Name<a style="color: red;">*</a></b>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="section">
+            <b class="section-title">Description</b>
+            <textarea id="description" name="description"></textarea>
+        </div>
+        <div class="section">
+            <p>Date<a style="color: red;">*</a></p>
+            <input type="date" id="date" name="date" required>
+        </div>
+        <div class="section">
+            <p>Shift<a style="color: red;">*</a></p>
+            <input type="radio" id="day" name="shift" value="day" required>
+            <label for="day">DAY</label>
+            <input type="radio" id="night" name="shift" value="night" required>
+            <label for="night">NIGHT</label>
+        </div>
+        <div class="section">
+            <p>Units<a style="color: red;">*</a></p>
+            <input type="radio" id="hrs" name="unit" value="hrs" required>
+            <label for="hrs">Hrs</label>
+            <input type="radio" id="kms" name="unit" value="kms" required>
+            <label for="kms">Kms</label>
+        </div>
+        <div class="section">
+            <b class="section-title">Measuring Unit<a style="color: red;">*</a></b>
+            <p>Starting</p>
+            <input type="number" id="smu" name="smu" required>
+            <p>Ending</p>
+            <input type="number" id="emu" name="emu" required>
+        </div>
+        <div class="section">
+            <b class="section-title">Working details</b>
+            <p>Chargeable to</p>
+            <input type="text" id="charge" name="charge">
+            <p>Location<a style="color: red;">*</a></p>
+            <input type="text" id="location" name="location" required>
+            <p>Nature of work<a style="color: red;">*</a></p>
+            <input type="text" id="nature" name="nature">
+        </div>
+        <div class="section">
+            <b class="section-title">Delivery details</b>
+            <p>No. of trips</p>
+            <input type="number" id="trips" name="trips" value="0">
+            <div class="inline">
+                <p>Quantity</p>
+                <input type="number" id="quantity" name="quantity" value="0">
+                <input type="radio" id="m3" name="quanunits" value="m3">
+                <label for="m3">m3</label>
+                <input type="radio" id="nos" name="quanunits" value="nos">
+                <label for="nos">No's</label>
+            </div>
+            <p>Operator</p>
+            <input type="text" id="operator" name="operator">
+        </div>
+        <div class="section">
+            <b class="section-title">Timings</b>
+            <p>Start time</p>
+            <input type="time" id="start-time" name="start-time">
+            <p>End time</p>
+            <input type="time" id="end-time" name="end-time">
+        </div>
+        <div class="section">
+            <b class="section-title">Fuel and repair details</b>
+            <p>Fuel Type:
+            <input type="radio" id="petrol" name="fuel" value="p">
+                <label for="petrol">petrol</label>
+            <input type="radio" id="diesel" name="fuel" value="d">
+                <label for="diesel">diesel</label>
+            </p>
+            <p>Quantity</p>
+            <div class="inline">
+                <input type="number" id="fuel-quantity" name="fuel-quantity">
+                <a>litres</a>
+            </div>
+            <p>BreakDown details</p>
+            <textarea id="BreakDown" name="BreakDown"></textarea>
+            <div class="section">
+                <p>Break down Start time</p>
+                <input type="time" id="br-start-time" name="br-start-time">
+                <p>Break down End time</p>
+                <input type="time" id="br-end-time" name="br-end-time">
+            </div>
+            <p>Spear parts used</p>
+            <textarea id="Spearparts" name="Spearparts"></textarea>
+            <p>Mechanic</p>
+            <input type="text" id="mech" name="mech">
+            <br>
+            <br>
+            <b>Remarks</b>
+            <textarea id="remarks" name="remarks"></textarea>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+    <script src="static/script.js"></script>
+</body>
+</html>
