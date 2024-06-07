@@ -53,11 +53,11 @@ def home():
 @app.route('/report')
 def report():
     return(render_template('getreport.html'))
-@app.route('/enter')
+# @app.route('/enter')
+# def enter():
+#     return(render_template('index.html'))
+@app.route('/enter', methods=['GET', 'POST'])
 def enter():
-    return(render_template('index.html'))
-@app.route('/entry', methods=['GET', 'POST'])
-def register():
     if request.method == 'POST':
         name = request.form.get('name')
         description = request.form.get('description')

@@ -72,7 +72,7 @@ width: 100%;
 overflow-x: scroll;
 overflow-y: visible;
 }
-/* .imp{
+.imp{
     width:fit-content;
-    position: absolute;
-} */
+    position: sticky;
+}

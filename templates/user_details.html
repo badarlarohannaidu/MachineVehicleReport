@@ -16,16 +16,18 @@
         </div>
     </div>
     <br>
-    <div class="cont">
     <h1>Vehicle Data</h1>
+    <div class="cont">
     <table border="1">
         <thead>
             <tr>
-                <th class="imp">ID</th>
-                <th class="imp">Name</th>
-                <th class="imp">Description</th>
-                <th class="imp">Date</th>
-                <th class="imp">Shift</th>
+                <div class="imp">
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Date(YYYY/MM/DD)</th>
+                <th>Shift</th>
+                </div>
                 <th>Unit</th>
                 <th>Starting Measuring Unit</th>
                 <th>Ending Measuring Unit</th>
@@ -52,11 +54,13 @@
         <tbody>
             {% for user in users %}
             <tr>
-                <td class="imp">{{ user.id }}</td>
-                <td class="imp">{{ user.name }}</td>
-                <td class="imp">{{ user.description }}</td>
-                <td class="imp">{{ user.date }}</td>
-                <td class="imp">{{ user.shift }}</td>
+                <div class="imp">
+                <td>{{ user.id }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.description }}</td>
+                <td>{{ user.date }}</td>
+                <td>{{ user.shift }}</td>
+                </div>
                 <td>{{ user.unit }}</td>
                 <td>{{ user.smu }}</td>
                 <td>{{ user.emu }}</td>
