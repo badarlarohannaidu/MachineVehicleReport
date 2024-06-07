@@ -50,9 +50,12 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     return(render_template('home.html'))
-@app.route('/get_report')
+@app.route('/report')
 def report():
-    return(render_template('get_report.html'))
+    return(render_template('getreport.html'))
+@app.route('/enter')
+def enter():
+    return(render_template('index.html'))
 @app.route('/entry', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
@@ -189,6 +192,62 @@ def all_users():
         user_list.append(user_data)
 
     # Return all users in JSON format
+    return render_template('user_details.html', users=user_list)
+
+@app.route('/submit_dates', methods=['GET'])
+def submit_dates():
+    from_date = request.args.get('from-date')
+    to_date = request.args.get('to-date')
+    machine_name = request.args.get('machine-name')
+
+    # Connect to the database
+    conn = sqlite3.connect('vehicle_data.db')
+    c = conn.cursor()
+
+    # Query the database to fetch data based on the given date range and machine name
+    query = """
+    SELECT * FROM users 
+    WHERE date BETWEEN ? AND ? AND name = ?
+    """
+    c.execute(query, (from_date, to_date, machine_name))
+    users = c.fetchall()  # Fetch all results
+
+    # Close the database connection
+    conn.close()
+
+    # Convert the fetched data into a list of dictionaries
+    user_list = []
+    for user in users:
+        user_data = {
+            'name': user[0],
+            'description': user[1],
+            'date': user[2],
+            'shift': user[3],
+            'unit': user[4],
+            'smu': user[5],
+            'emu': user[6],
+            'charge': user[7],
+            'location': user[8],
+            'nature': user[9],
+            'trips': user[10],
+            'quantity': user[11],
+            'quanunits': user[12],
+            'operator': user[13],
+            'start_time': user[14],
+            'end_time': user[15],
+            'fuel': user[16],
+            'fuel_quantity': user[17],
+            'BreakDown': user[18],
+            'SpearParts': user[21],
+            'mech': user[22],
+            'remarks': user[23],
+            'working_hours': int(user[6]) - int(user[5]),
+            'breakdown_start': user[19],
+            'breakdown_end': user[20]
+        }
+        user_list.append(user_data)
+
+    # Return the filtered users in JSON format
     return render_template('user_details.html', users=user_list)
 
 

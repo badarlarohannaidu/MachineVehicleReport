@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Date Range</title>
+    <link rel="stylesheet" href="static/repstyles.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">Logo</div>
+        <div class="nav-links">
+            <a href="{{url_for('home')}}">Home</a>
+            <a href="{{url_for('enter')}}">Enter Data</a>
+            <a href="{{url_for('report')}}">Get Report</a>
+        </div>
+    </div>
+    <div class="container">
+        <h1>Select Date Range</h1>
+        <form action="/submit_dates" method="get">
+            <label for="from-date">From Date:</label>
+            <input type="date" id="from-date" name="from-date" required>
+            <label for="to-date">To Date:</label>
+            <input type="date" id="to-date" name="to-date" required>
+            <label for="machine-name">Machine Name:</label>
+            <input type="text" id="machine-name" name="machine-name" required>
+            <button type="submit" class="submit-button">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

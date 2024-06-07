@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #36454F;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #4FFFB0;
+}
+
+table {
+    overflow-x: scroll;
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #FEE715;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 14px;
+}
+
+tr:nth-child(even) {
+    background-color: #F9E795;
+}
+.navbar {
+width: 100%;
+background-color: #800020;
+overflow: hidden;
+position: absolute;
+top: 0;
+left: 0;
+display: flex;
+align-items: center;
+}
+.navbar .logo {
+margin-left: 20px;
+font-size: 24px;
+font-weight: bold;
+color: white;
+}
+.navbar a {
+float: left;
+display: block;
+color: white;
+text-align: center;
+padding: 14px 20px;
+text-decoration: none;
+}
+.navbar a:hover {
+background-color: #DC143C;
+}
+.navbar .nav-links {
+display: flex;
+justify-content: center;
+width: 100%;
+}
+.cont{
+overflow-x: scroll;
+overflow-y: visible;
+}
+/* .imp{
+    width:fit-content;
+    position: absolute;
+} */

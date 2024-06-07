@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #36454F;
+}
+.navbar {
+    width: 100%;
+    background-color: #800020;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+}
+.navbar .logo {
+    margin-left: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+.navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+.navbar a:hover {
+    background-color: #DC143C;
+}
+.navbar .nav-links {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.container {
+    text-align: center;
+    background: #FEE715;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 60px; /* To avoid the navbar */
+}
+h1 {
+    margin-bottom: 40px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+label {
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+input[type="date"], input[type="text"] {
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: 2px solid #007BFF;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+input[type="date"]:focus, input[type="text"]:focus {
+    border-color: #0056b3;
+}
+.submit-button {
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 16px;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.submit-button:hover {
+    background-color: #0056b3;
+}
