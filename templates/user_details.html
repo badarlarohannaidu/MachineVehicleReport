@@ -1,11 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vehicle Data Display</title>
     <link rel="stylesheet" href="static/userstyles.css">
+    <style>
+        .tables-container {
+            display: flex;
+        }
+
+        .table-wrapper.left {
+            width: 33.33%; /* 1/3 of the screen */
+            overflow: hidden;
+        }
+
+        .table-wrapper.right {
+            width: 66.67%; /* 2/3 of the screen */
+            overflow-x: auto; /* Enables horizontal scroll */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .imp th {
+            background-color: #f2f2f2;
+        }
+
+        /* Set fixed widths for the columns */
+        .left-table th:nth-child(1),
+        .left-table td:nth-child(1) {
+            width: 20px; /* Adjust as needed */
+        }
+        .left-table th:nth-child(2),
+        .left-table td:nth-child(2) {
+            width: 100px; /* Adjust as needed */
+        }
+        .left-table th:nth-child(3),
+        .left-table td:nth-child(3) {
+            width: 150px; /* Adjust as needed */
+        }
+        .left-table th:nth-child(4),
+        .left-table td:nth-child(4) {
+            width: 50px; /* Adjust as needed */
+        }
+
+        .right-table th:nth-child(1),
+        .right-table td:nth-child(1) {
+            width: 150px; /* Adjust as needed */
+        }
+        .right-table th:nth-child(2),
+        .right-table td:nth-child(2) {
+            width: 50px; /* Adjust as needed */
+        }
+        .right-table th:nth-child(3),
+        .right-table td:nth-child(3) {
+            width: 150px; /* Adjust as needed */
+        }
+        .right-table th:nth-child(4),
+        .right-table td:nth-child(4) {
+            width: 150px; /* Adjust as needed */
+        }
+        .right-table th:nth-child(5),
+        .right-table td:nth-child(5) {
+            width: 150px; /* Adjust as needed */
+        }
+        .right-table th:nth-child(6),
+        .right-table td:nth-child(6) {
+            width: 150px; /* Adjust as needed */
+        }
+        .right-table th:nth-child(7),
+        .right-table td:nth-child(7) {
+            width: 150px; /* Adjust as needed */
+        }
+        .right-table th:nth-child(8),
+        .right-table td:nth-child(8) {
+            width: 150px; /* Adjust as needed */
+        }
+        .right-table th:nth-child(9),
+        .right-table td:nth-child(9) {
+            width: 150px; /* Adjust as needed */
+        }
+        .right-table th:nth-child(10),
+        .right-table td:nth-child(10) {
+            width: 150px; /* Adjust as needed */
+        }
+        .right-table th:nth-child(11),
+        .right-table td:nth-child(11) {
+            width: 150px; /* Adjust as needed */
+        }
+        .right-table th:nth-child(12),
+        .right-table td:nth-child(12) {
+            width: 150px; /* Adjust as needed */
+        }
+        .right-table th:nth-child(13),
+        .right-table td:nth-child(13) {
+            width: 150px; /* Adjust as needed */
+        }
+        .right-table th:nth-child(14),
+        .right-table td:nth-child(14) {
+            width: 150px; /* Adjust as needed */
+        }
+        .right-table th:nth-child(15),
+        .right-table td:nth-child(15) {
+            width: 150px; /* Adjust as needed */
+        }
+        .right-table th:nth-child(16),
+        .right-table td:nth-child(16) {
+            width: 150px; /* Adjust as needed */
+        }
+        .right-table th:nth-child(17),
+        .right-table td:nth-child(17) {
+            width: 150px; /* Adjust as needed */
+        }
+        .right-table th:nth-child(18),
+        .right-table td:nth-child(18) {
+            width: 150px; /* Adjust as needed */
+        }
+        .right-table th:nth-child(19),
+        .right-table td:nth-child(19) {
+            width: 150px; /* Adjust as needed */
+        }
+        .right-table th:nth-child(20),
+        .right-table td:nth-child(20) {
+            width: 150px; /* Adjust as needed */
+        }
+        .right-table th:nth-child(21),
+        .right-table td:nth-child(21) {
+            width: 150px; /* Adjust as needed */
+        }
+        .right-table th:nth-child(22),
+        .right-table td:nth-child(22) {
+            width: 150px; /* Adjust as needed */
+        }
+        .right-table th:nth-child(23),
+        .right-table td:nth-child(23) {
+            width: 150px; /* Adjust as needed */
+        }
+    </style>
 </head>
+
 <body>
     <div class="navbar">
         <div class="logo">Logo</div>
@@ -17,75 +160,115 @@
     </div>
     <br>
     <h1>Vehicle Data</h1>
-    <div class="cont">
-    <table border="1">
-        <thead>
-            <tr>
-                <div class="imp">
-                <th>ID</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Date(YYYY/MM/DD)</th>
-                <th>Shift</th>
-                </div>
-                <th>Unit</th>
-                <th>Starting Measuring Unit</th>
-                <th>Ending Measuring Unit</th>
-                <th>Chargeable to</th>
-                <th>Location</th>
-                <th>Nature</th>
-                <th>No. of Trips</th>
-                <th>Quantity</th>
-                <th>Quantity Units</th>
-                <th>Operator</th>
-                <th>Start Time</th>
-                <th>End Time</th>
-                <th>Fuel Type</th>
-                <th>Fuel Quantity</th>
-                <th>Breakdown Details</th>
-                <th>BreakDown Start time</th>
-                <th>BreakDown End Time</th>
-                <th>Spear Parts Used</th>
-                <th>Mechanic</th>
-                <th>Total working time</th>
-                <th>Remarks</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for user in users %}
-            <tr>
-                <div class="imp">
-                <td>{{ user.id }}</td>
-                <td>{{ user.name }}</td>
-                <td>{{ user.description }}</td>
-                <td>{{ user.date }}</td>
-                <td>{{ user.shift }}</td>
-                </div>
-                <td>{{ user.unit }}</td>
-                <td>{{ user.smu }}</td>
-                <td>{{ user.emu }}</td>
-                <td>{{ user.charge }}</td>
-                <td>{{ user.location }}</td>
-                <td>{{ user.nature }}</td>
-                <td>{{ user.trips }}</td>
-                <td>{{ user.quantity }}</td>
-                <td>{{ user.quanunits }}</td>
-                <td>{{ user.operator }}</td>
-                <td>{{ user.start_time }}</td>
-                <td>{{ user.end_time }}</td>
-                <td>{{ user.fuel }}</td>
-                <td>{{ user.fuel_quantity }}</td>
-                <td>{{ user.BreakDown }}</td>
-                <td>{{user.breakdown_start}}</td>
-                <td>{{user.breakdown_end}}</td>
-                <td>{{ user.SpearParts }}</td>
-                <td>{{ user.mech }}</td>
-                <td>{{user.working_hours}}</td>
-                <td>{{ user.remarks }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <div class="tables-container">
+        <div class="table-wrapper left">
+            <table class="left-table">
+                <thead>
+                    <tr class="imp">
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Date (YYYY/MM/DD)</th>
+                        <th>Shift</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.name }}</td>
+                        <td>{{ user.date }}</td>
+                        <td>{{ user.shift }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="table-wrapper right">
+            <table class="right-table">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Unit</th>
+                        <th>Starting Measuring Unit</th>
+                        <th>Ending Measuring Unit</th>
+                        <th>Chargeable to</th>
+                        <th>Location</th>
+                        <th>Nature</th>
+                        <th>No. of Trips</th>
+                        <th>Quantity</th>
+                        <th>Quantity Units</th>
+                        <th>Operator</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Fuel Type</th>
+                        <th>Fuel Quantity</th>
+                        <th>Breakdown Details</th>
+                        <th>BreakDown Start Time</th>
+                        <th>BreakDown End Time</th>
+                        <th>Spear Parts Used</th>
+                        <th>Mechanic</th>
+                        <th>Total Working Time</th>
+                        <th>Remarks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td>{{ user.description }}</td>
+                        <td>{{ user.unit }}</td>
+                        <td>{{ user.smu }}</td>
+                        <td>{{ user.emu }}</td>
+                        <td>{{ user.charge }}</td>
+                        <td>{{ user.location }}</td>
+                        <td>{{ user.nature }}</td>
+                        <td>{{ user.trips }}</td>
+                        <td>{{ user.quantity }}</td>
+                        <td>{{ user.quanunits }}</td>
+                        <td>{{ user.operator }}</td>
+                        <td>{{ user.start_time }}</td>
+                        <td>{{ user.end_time }}</td>
+                        <td>{{ user.fuel }}</td>
+                        <td>{{ user.fuel_quantity }}</td>
+                        <td>{{ user.BreakDown }}</td>
+                        <td>{{ user.breakdown_start }}</td>
+                        <td>{{ user.breakdown_end }}</td>
+                        <td>{{ user.SpearParts }}</td>
+                        <td>{{ user.mech }}</td>
+                        <td>{{ user.working_hours }}</td>
+                        <td>{{ user.remarks }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
+
+    <script>
+        function equalizeRowHeights() {
+            const tableWrappers = document.querySelectorAll('.table-wrapper');
+            const tables = Array.from(tableWrappers).map(wrapper => wrapper.querySelector('table'));
+
+            if (tables.length < 2) return;
+
+            const rows1 = tables[0].rows;
+            const rows2 = tables[1].rows;
+
+            const rowCount = Math.min(rows1.length, rows2.length);
+
+            for (let i = 0; i < rowCount; i++) {
+                const row1 = rows1[i];
+                const row2 = rows2[i];
+
+                const maxHeight = Math.max(row1.offsetHeight, row2.offsetHeight);
+
+                row1.style.height = `${maxHeight}px`;
+                row2.style.height = `${maxHeight}px`;
+            }
+        }
+
+        window.onload = equalizeRowHeights;
+        window.onresize = equalizeRowHeights;
+    </script>
 </body>
+
 </html>
