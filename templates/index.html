@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vehicle Data</title>
-    <link rel="stylesheet" href="static/styles.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
 </head>
 <body>
     <div class="navbar">
         <div class="logo">Logo</div>
         <div class="nav-links">
-            <a href="{{url_for('home')}}">Home</a>
-            <a href="{{url_for('enter')}}">Enter Data</a>
-            <a href="{{url_for('report')}}">Get Report</a>
+            <a href="http://localhost:5000/home/{{userType}}/{{username}}">Home</a>
+            <a href="http://localhost:5000/enter/{{userType}}/{{username}}">Enter Data</a>
+            <a href="http://localhost:5000/report/{{userType}}/{{username}}">Get Report</a>
         </div>
     </div>
 
     <form method="POST">
-        <h1><u>Machinery DPR report</u></h1>
+        <h1><u>Machinery DPR report {{data}}</u></h1>
         <br>
         <br>
         <div class="section">
@@ -116,6 +116,6 @@
         </div>
         <button type="submit">Submit</button>
     </form>
-    <script src="static/script.js"></script>
+    <script src="{{url_for('static', filename='script.js')}}"></script>
 </body>
 </html>

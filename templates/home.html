@@ -4,21 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vehicle Data Homepage</title>
-    <link rel="stylesheet" href="static/homestyle.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='homestyle.css')}}">
 </head>
 <body>
     <div class="navbar">
         <div class="logo">Logo</div>
         <div class="nav-links">
-            <a href="{{url_for('home')}}">Home</a>
-            <a href="{{url_for('enter')}}">Enter Data</a>
-            <a href="{{url_for('report')}}">Get Report</a>
+            <a href="http://localhost:5000/home/{{userType}}/{{username}}">Homy</a>
+            <a href="http://localhost:5000/enter/{{userType}}/{{username}}">Enter Data</a>
+            <a href="http://localhost:5000/report/{{userType}}/{{username}}">Get Report</a>
         </div>
     </div>
     <div class="container">
         <h1>Welcome to Vehicle Data Management</h1>
-        <a href="{{url_for('enter')}}" class="button">Enter Vehicle Data</a>
-        <a href="{{url_for('report')}}" class="button">Get Report</a>
+        {% if username %}
+        <h4> Mr. {{username}}</h4>
+        {% endif %}
+        <a href="http://localhost:5000/enter/{{userType}}/{{username}}" class="button">Enter Vehicle Data</a>
+        <a href="http://localhost:5000/report/{{userType}}/{{username}}" class="button">Get Report</a>
     </div>
 </body>
 </html>

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, abort, jsonify
+from flask import Flask, render_template, request, redirect, url_for, abort, jsonify, flash
 import json
 import sqlite3
 import urllib.parse
@@ -14,6 +14,42 @@ def create_table(form_data):
 
     conn.commit()
     conn.close()
+
+def create_accounts_db():
+    con = sqlite3.connect('accounts.db')
+    c = con.cursor()
+
+    sql_create_accounts_table = """CREATE TABLE IF NOT EXISTS accounts (
+                                    id integer PRIMARY KEY,
+                                    username text NOT NULL,
+                                    password text NOT NULL
+                                );"""
+    
+    c.execute(sql_create_accounts_table)
+
+    con.commit()
+    con.close()
+
+def create_connection(db_file):
+    conn = sqlite3.connect(db_file)
+    return conn
+
+def account_search(filename, username):
+    conn = create_connection(filename)
+    sql_search_account = """SELECT * FROM accounts WHERE username=?"""
+    cur = conn.cursor()
+    cur.execute(sql_search_account, (username,))
+    rows = cur.fetchall()
+    return rows
+
+def acc_add_user(filename, username, password):
+    conn = create_connection(filename)
+    sql_insert_account = """INSERT INTO accounts(username, password)
+                            VALUES(?, ?);"""
+    cur = conn.cursor()
+    cur.execute(sql_insert_account, (username, password))
+    conn.commit()
+    return "Done"
 
 # Example form data
 example_form_data = {
@@ -46,16 +82,60 @@ example_form_data = {
 
 create_table(example_form_data)
 
+create_accounts_db()
+acc_add_user
+
 app = Flask(__name__)
+app.secret_key = 'supersecretkey'
 @app.route('/')
 def home():
-    return(render_template('home.html'))
+    return redirect("http://127.0.0.1:5000/login")
+
+@app.route('/after-home/<username>')
+def afterhome(username):
+    # username = request.args.get('data')
+    return(render_template('home.html', data = username))
+
 @app.route('/report')
 def report():
     return(render_template('getreport.html'))
-# @app.route('/enter')
-# def enter():
-#     return(render_template('index.html'))
+
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if(request.method == 'POST'):
+        username = request.form['username']
+        password = request.form['password']
+
+        print(username)
+
+        res = account_search("accounts.db", username)
+        if(res != []):
+            flash('Username already exists', 'danger')
+            return redirect(url_for('login'))
+        else:
+            acc_add_user("accounts.db", username, password)
+            flash('registered Successfully. Please Login', 'success')
+            return redirect(url_for('login'))
+
+    return(render_template('register.html'))
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if(request.method == "POST"):
+        username = request.form['username']
+        password = request.form['password']
+
+        rees = account_search("accounts.db", username)
+        if rees != [] and rees[0][2] == password:
+            print("Correct Till Herre")
+            return render_template('home.html', data = username)
+        else:
+            flash('Invalid credentials', 'danger')
+            return redirect(url_for('login'))
+    return(render_template('login.html'))
+
 @app.route('/enter', methods=['GET', 'POST'])
 def enter():
     if request.method == 'POST':
@@ -90,8 +170,10 @@ def enter():
         conn.commit()
         conn.close()
         
-        return redirect(url_for('user_details', name=urllib.parse.quote(name), date=date, shift=shift))    
-    return render_template('index.html')
+        return redirect(url_for('user_details', name=urllib.parse.quote(name), date=date, shift=shift))
+    username = request.args.get('data')
+    print("Username : ", username)
+    return render_template('index.html', data=username)
 
 
 @app.route('/user/<name>&<date>&<shift>')
