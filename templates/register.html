@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            background-color: #36454F;
             margin: 0;
             padding: 0;
             display: flex;
@@ -27,7 +27,7 @@
         }
 
         form {
-            background-color: #fff;
+            background-color: #FEE715;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -91,26 +91,25 @@
 </head>
 <body>
     <div class="container">
-        <h2>Register</h2>
         <form method="POST">
+            <h2>Register</h2>
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
 
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
-
             <div class="radio-group">
                 <label for="designation">Designation:</label>
                 <input type="radio" id="customer" name="designation" value="customer" required>
-                <label for="customer">Customer</label>
+                <label for="customer">Operator</label>
                 <input type="radio" id="manager" name="designation" value="manager" required>
                 <label for="manager">Manager</label>
             </div>
 
             <input type="submit" value="Register">
+            <p>Already have an account? <a href="http://localhost:5000/login">Login here</a></p>
         </form>
         <div class="form-footer">
-            <p>Already have an account? <a href="http://localhost:5000/login">Login here</a></p>
         </div>
     </div>
 </body>

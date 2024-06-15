@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            background-color: #36454F;
             margin: 0;
             padding: 0;
             display: flex;
@@ -27,7 +27,7 @@
         }
 
         form {
-            background-color: #fff;
+            background-color: #FEE715;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -88,16 +88,16 @@
         {% if msg %}
         <div class="error-message">{{ msg }}</div>
         {% endif %}
-        <h2>Login</h2>
         <form method="POST">
+            <h2>Login</h2>
             <label for="username">Username:</label><br>
             <input type="text" id="username" name="username" required><br><br>
             <label for="password">Password:</label><br>
             <input type="password" id="password" name="password" required><br><br>
             <input type="submit" value="Login">
+            <p>Don't have an account? <a href="http://localhost:5000/register">Register here</a></p>
         </form>
         <div class="form-footer">
-            <p>Don't have an account? <a href="http://localhost:5000/register">Register here</a></p>
         </div>
     </div>
 </body>
