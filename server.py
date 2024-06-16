@@ -10,7 +10,7 @@ setup_vehicle_database()
 
 @app.route('/')
 def root_dir():
-    return redirect('http://localhost:5000/register')
+    return redirect('http://machinedpr.pythonanywhere.com/register')
 
 @app.route('/register', methods=['GET', 'POST'])
 def registration():
@@ -24,7 +24,7 @@ def registration():
 
         print("---Stored Successfully---")
 
-        return redirect('http://localhost:5000/login')
+        return redirect('http://machinedpr.pythonanywhere.com/login')
     
     return render_template('register.html')
 
@@ -38,7 +38,7 @@ def login():
         if(userType == "Incorrect Credentials"):
             return render_template('login.html', msg="invalid")
         else:
-            url = "http://localhost:5000/home/"+ userType + "/" + username
+            url = "http://machinedpr.pythonanywhere.com/home/"+ userType + "/" + username
             return redirect(url)
     return render_template('login.html')
 
