@@ -42,11 +42,11 @@ def login():
             return redirect(url)
     return render_template('login.html')
 
-@app.route('/home/<userType>/<username>', methods = ['GET'])
+@app.route('http://machinedpr.pythonanywhere.com/home/<userType>/<username>', methods = ['GET'])
 def home_page(userType, username):
     return render_template('home.html', username=username, userType=userType)
 
-@app.route('/enter/<userType>/<username>', methods = ['GET', 'POST'])
+@app.route('http://machinedpr.pythonanywhere.com/enter/<userType>/<username>', methods = ['GET', 'POST'])
 def enter_page(userType, username):
     if(request.method == 'GET'):
         return render_template('index.html', username=username, userType=userType)
@@ -56,11 +56,11 @@ def enter_page(userType, username):
         return render_template('index.html', username=username, userType=userType)
     return render_template('index.html', username=username, userType=userType)
 
-@app.route('/report/<userType>/<username>')
+@app.route('http://machinedpr.pythonanywhere.com/report/<userType>/<username>')
 def report_page(userType, username):
     return render_template('getreport.html', userType=userType, username=username)
 
-@app.route('/submit_dates/<userType>/<username>', methods=['GET'])
+@app.route('http://machinedpr.pythonanywhere.com/submit_dates/<userType>/<username>', methods=['GET'])
 def submit_dates(userType, username):
     from_date = request.args.get('from-date')
     to_date = request.args.get('to-date')
